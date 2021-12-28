@@ -7,6 +7,6 @@ public class SamplwTest {
     //Sample test case to pass the build
     @Test
     void sampleTest(){
-        Assertions.assertTrue(true);
+        Assertions.assertTrue("sample".equalsIgnoreCase("sample"));
     }
 }
