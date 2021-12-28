@@ -12,7 +12,7 @@
 
     <groupId>com.csx.test</groupId>
     <artifactId>litmus-util</artifactId>
-    <version>${revision}${sha1}${changelist}</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
     <name>litmus-util</name>
 
