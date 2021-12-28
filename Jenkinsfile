@@ -1,4 +1,4 @@
-library 'javaService'
+library 'javaService@jarpublishonlychanges'
 
 // Call to Jenkins Library
 javaApp {
