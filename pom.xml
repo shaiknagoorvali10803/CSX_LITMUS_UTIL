@@ -14,8 +14,20 @@
     <artifactId>litmus-util</artifactId>
     <version>0.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>litmus-util</name>
+    <name>${project.artifactId}</name>
 
+    <distributionManagement>
+        <repository>
+            <id>CSX</id>
+            <name>CSX Internal Repository</name>
+            <url>http://repo.csx.com/content/repositories/ent01</url>
+        </repository>
+        <snapshotRepository>
+            <id>CSX</id>
+            <name>CSX Internal Repository</name>
+            <url>http://repo.csx.com/content/repositories/ent01-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <properties>
         <revision>0.0.2</revision>
@@ -26,7 +38,7 @@
 
         <!-- SCM Repo Location -->
         <csx.scm.project>ENTREF</csx.scm.project>
-        <csx.scm.repo>litmus-util</csx.scm.repo>
+        <csx.scm.repo>${project.artifactId}</csx.scm.repo>
     </properties>
 
     <!-- Dependency Management will propagate the dependency version and scope
