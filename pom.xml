@@ -14,17 +14,19 @@
     <artifactId>litmus-util</artifactId>
     <version>${revision}${sha1}${changelist}</version>
     <packaging>jar</packaging>
+    <name>litmus-util</name>
+
 
     <properties>
         <revision>0.0.2</revision>
         <changelist>-SNAPSHOT</changelist>
-        <sha1></sha1>
+        <sha1/>
         <!-- CSX Application Code -->
         <csx.app.code>en</csx.app.code>
 
         <!-- SCM Repo Location -->
         <csx.scm.project>ENTREF</csx.scm.project>
-        <csx.scm.repo>litmus-common</csx.scm.repo>
+        <csx.scm.repo>litmus-util</csx.scm.repo>
     </properties>
 
     <!-- Dependency Management will propagate the dependency version and scope

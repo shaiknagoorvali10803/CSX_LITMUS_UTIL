@@ -1,8 +1,7 @@
-library 'javaService@jarpublishonlychanges'
+library 'javaUtility'
 
-// Call to Jenkins Library
-javaApp {
+javaUtility {
   artifactType = 'jar'
-  javaVersion = '11'
+  javaVersion = '8'
   enableXray = false
-}
+ }
