@@ -4,9 +4,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.WebDriver;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 
 /**
@@ -25,5 +23,70 @@ public class PDFfileHandlingUtil {
 		String pdfContent = content.toLowerCase();
 		doc.close();
 		return pdfContent;
+	}
+
+	/**
+	 * -------------------------Author: Shaik.Nagoorvali (Z3594)----------------------------------------
+	 */
+
+	public static String getPDFData(String filepath) {
+		PDDocument document = null;
+		PDFTextStripper pdfStripper = null;
+		String pdfText = null;
+		try {
+			File file = new File(filepath);
+			FileInputStream fis = new FileInputStream(file);
+			document = PDDocument.load(fis);
+			pdfStripper = new PDFTextStripper();
+			pdfText = pdfStripper.getText(document);
+			document.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return pdfText;
+	}
+
+	/**
+	 * -------------------------Author: Shaik.Nagoorvali (Z3594)----------------------------------------
+	 */
+
+	public static String getPDFData(String filepath, int pageNo) {
+		PDDocument document = null;
+		PDFTextStripper pdfStripper = null;
+		String pdfText = null;
+		try {
+			File file = new File(filepath);
+			document = PDDocument.load(file);
+			pdfStripper = new PDFTextStripper();
+			pdfStripper.setStartPage(pageNo);
+			pdfStripper.setEndPage(pageNo);
+			pdfText = pdfStripper.getText(document);
+			document.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return pdfText;
+	}
+
+	/**
+	 * -------------------------Author: Shaik.Nagoorvali (Z3594)----------------------------------------
+	 */
+
+	public static String getPDFData(String filepath, int startPage, int endPage) {
+		PDDocument document = null;
+		PDFTextStripper pdfStripper = null;
+		String pdfText = null;
+		try {
+			File file = new File(filepath);
+			document = PDDocument.load(file);
+			pdfStripper = new PDFTextStripper();
+			pdfStripper.setStartPage(startPage);
+			pdfStripper.setEndPage(endPage);
+			pdfText = pdfStripper.getText(document);
+			document.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return pdfText;
 	}
 }
