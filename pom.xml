@@ -8,7 +8,7 @@
     <artifactId>litmus-util</artifactId>
     <version>0.0.5-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>${project.artifactId}</name>
+<!--    <name>${project.artifactId}</name>
 
     <distributionManagement>
         <repository>
@@ -27,24 +27,30 @@
         <revision>0.0.2</revision>
         <changelist>-SNAPSHOT</changelist>
         <sha1/>
-        <!-- CSX Application Code -->
+        &lt;!&ndash; CSX Application Code &ndash;&gt;
         <csx.app.code>en</csx.app.code>
 
-        <!-- SCM Repo Location -->
+        &lt;!&ndash; SCM Repo Location &ndash;&gt;
         <csx.scm.project>ENTREF</csx.scm.project>
         <csx.scm.repo>${project.artifactId}</csx.scm.repo>
-    </properties>
+    </properties>-->
 
     <!-- Dependency Management will propagate the dependency version and scope
 		to the children POM's if the dependency is declared. -->
     <!-- Dependencies are managed not resolved. -->
+    <properties>
+        <selenium.version>4.13.0</selenium.version>
+        <webdrivermanager.version>5.6.2</webdrivermanager.version>
+        <cucumber.version>7.13.0</cucumber.version>
+        <spring.version>3.1.5</spring.version>
+        <junit-jupiter.version>5.10.0</junit-jupiter.version>
+    </properties>
     <dependencyManagement>
         <dependencies>
-            <!-- JUnit 5.x -->
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>5.8.2</version>
+                <version>5.10.0</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -52,49 +58,68 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter.version}</version>
         </dependency>
+
         <!-- Selenium -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.1.0</version>
+            <version>${selenium.version}</version>
         </dependency>
 
         <!-- For logging -->
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-core -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>1.2.8</version>
+            <version>1.4.13</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.8</version>
+            <version>1.4.13</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.22.0</version>
         </dependency>
 
         <!-- For Rest Assured API testing -->
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.4.0</version>
+            <version>4.5.1</version>
             <scope>test</scope>
         </dependency>
 
+
         <!-- For JSON file handling -->
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>20211205</version>
+            <version>20231013</version>
         </dependency>
 
+
         <!-- For getting PDF content as string -->
+        <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
         <dependency>
             <groupId>org.apache.pdfbox</groupId>
             <artifactId>pdfbox</artifactId>
-            <version>2.0.24</version>
+            <version>2.0.30</version>
         </dependency>
 
         <!-- For JDBC connection -->
@@ -124,24 +149,21 @@
         </dependency>-->
 
         <!-- For Excel handling -->
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>5.0.0</version>
+            <version>5.2.3</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>5.0.0</version>
+            <version>5.2.3</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.xmlbeans</groupId>
-            <artifactId>xmlbeans</artifactId>
-            <version>5.0.1</version>
-        </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml-schemas -->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml-schemas</artifactId>
@@ -149,46 +171,47 @@
         </dependency>
 
         <!-- Screen Recording -->
+        <!-- https://mvnrepository.com/artifact/com.github.stephenc.monte/monte-screen-recorder -->
         <dependency>
             <groupId>com.github.stephenc.monte</groupId>
             <artifactId>monte-screen-recorder</artifactId>
             <version>0.7.7.0</version>
         </dependency>
 
-
         <!-- for CSV file handling -->
+        <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
-            <version>5.5.2</version>
+            <version>5.9</version>
         </dependency>
 
         <!-- Apache Commons CSV handling -->
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-csv</artifactId>
-            <version>1.9.0</version>
+            <version>1.10.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.15.0</version>
+            <version>2.15.1</version>
         </dependency>
 
-
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.7.0-M1</version>
-            <scope>test</scope>
+            <version>${junit-jupiter.version}</version>
         </dependency>
+
     </dependencies>
     <build>
         <defaultGoal>install</defaultGoal>
         <finalName>${project.name}</finalName>
-
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -217,9 +240,9 @@
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
-                        <compilerVersion>1.8</compilerVersion>
+                        <source>17</source>
+                        <target>17</target>
+                        <compilerVersion>17</compilerVersion>
                     </configuration>
                 </plugin>
 

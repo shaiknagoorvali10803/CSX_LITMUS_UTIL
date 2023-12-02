@@ -17,6 +17,7 @@ import java.util.Date;
 public class SpecializedScreenRecorder extends ScreenRecorder {
 	private String name;
 
+
     public SpecializedScreenRecorder(GraphicsConfiguration cfg, Rectangle captureArea, Format fileFormat, Format screenFormat, Format mouseFormat, Format audioFormat, File movieFolder, String name)
             throws IOException, AWTException {
         super(cfg, captureArea, fileFormat, screenFormat, mouseFormat, audioFormat, movieFolder);

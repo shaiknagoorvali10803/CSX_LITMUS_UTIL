@@ -22,9 +22,9 @@ import static org.junit.jupiter.api.Assertions.fail;
  -------------------------Author: Perraj Kumar K (S9402)----------------------------------------
  */
 public class CSVUtil {
+    private  static Logger LOGGER = LoggerFactory.getLogger(CSVUtil.class);
 	public static final String ERROR_MSG = "Some error has occurred while performing operation::{}";
-	private static final Logger LOGGER = LoggerFactory.getLogger(CSVUtil.class);
-	
+
 //Get the data from CSV file as string list
 	public static List<String> getCSVColumnData(String filePath, int colNum) {		
 		try {
@@ -64,7 +64,7 @@ public class CSVUtil {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
             header = reader.readLine();
-            System.out.println(header);
+            LOGGER.info(" Header Values are ==> "+ header);
             while ((line = reader.readLine()) != null) {
                 List<String> values = Arrays.asList(line.split(delimiter));
                 lines.add(values);
